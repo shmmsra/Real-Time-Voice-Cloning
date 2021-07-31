@@ -63,3 +63,22 @@ or
 `python demo_toolbox.py`  
 
 depending on whether you downloaded any datasets. If you are running an X-server or if you have the error `Aborted (core dumped)`, see [this issue](https://github.com/CorentinJ/Real-Time-Voice-Cloning/issues/11#issuecomment-504733590).
+
+
+## Docker Setup
+Alternatively, you can also run this project from a docker image available at **shmmsra/voice-clone**. To run the Docker image:
+
+### 1. Install Requirements (Mac OS X)
+* Download and install Docker from [here](https://docs.docker.com/get-docker/)
+* You would need XQuartz X11 server to see the UI. Install the latest [XQuartz](https://www.xquartz.org/) X11 server.
+* You would also need PulseAudio to play audio from within Docker. Install it using Homebrew - `brew install pulseaudio`.
+
+### 2. Launch the Docker container
+Once the setup is complete, use the following commands to prepare and launch the **voice-clone** image as a container:
+
+Make sure the XQuartz and PulseAudio services are running:
+* `xhost + 127.0.0.1`
+* `pulseaudio --load=module-native-protocol-tcp --exit-idle-time=-1 --daemon`
+
+Launch the Docker image (with host's `~/Documents` mapped to container's `/home/dev/Documents` for data sharing):
+* `docker run -it -v ~/.config/pulse:/home/dev/.config/pulse -v ~/Documents:/home/dev/Documents --rm shmmsra/voice-clone`
