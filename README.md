@@ -71,6 +71,8 @@ Alternatively, you can also run this project from a docker image available at **
 ### 1. Install Requirements (Mac OS X)
 * Download and install Docker from [here](https://docs.docker.com/get-docker/)
 * You would need XQuartz X11 server to see the UI. Install the latest [XQuartz](https://www.xquartz.org/) X11 server.
+* Enable the option `Security > Allow connections from network clients` in XQuartz settings/preferences (`cmd+,`).
+* Quit & restart XQuartz (to apply the setting changes).
 * You would also need PulseAudio to play audio from within Docker. Install it using Homebrew - `brew install pulseaudio`.
 
 ### 2. Launch the Docker container
